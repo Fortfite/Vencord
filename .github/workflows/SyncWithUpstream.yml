@@ -77,14 +77,14 @@ jobs:
         run: mkdir -p ./src/main
 
       - name: Copy csp.ts from Fortfite/miscfiles
-        run: cp miscfiles/csp.ts ./src/main/csp.ts
+        run: cp miscfiles/index.ts ./src/main/csp/index.ts
     
       - name: Commit and push if csp.ts changed
         run: |
           git config --global user.name "github-actions[bot]"
           git config --global user.email "github-actions[bot]@users.noreply.github.com"
-          git add ./src/main/csp.ts
-          git commit -m "Update csp.ts from Fortfite/miscfiles" || exit 0
+          git add ./src/main/csp/index.ts
+          git commit -m "Update csp/index.ts from Fortfite/miscfiles" || exit 0
           git push
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
